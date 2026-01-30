@@ -1,16 +1,21 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Funnel_Display } from "next/font/google";
 import "./globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
+import SideBar from "@/components/SideBar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const funnelDisplaySans = Funnel_Display()
+const funnelDisplayMono = Funnel_Display()
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// const geistSans = Geist({
+//   variable: "--font-geist-sans",
+//   subsets: ["latin"],
+// });
+
+// const geistMono = Geist_Mono({
+//   variable: "--font-geist-mono",
+//   subsets: ["latin"],
+// });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,9 +30,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${funnelDisplaySans.className} ${funnelDisplayMono.className} antialiased`}
       >
-        {children}
+        <main className="root">
+          <ClerkProvider>
+            <>
+              <SideBar />
+              <div className="root-container">
+                <div className="wrapper">{children}</div>
+              </div>
+            </>
+          </ClerkProvider>
+        </main>
       </body>
     </html>
   );
