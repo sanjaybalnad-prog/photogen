@@ -5,17 +5,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
-import { Button } from "@/components/ui/button";
-// import { useTheme } from "next-themes";
-// import ToggleTheme from "./ToggleTheme";
-
-
-
+import { Button } from "./ui/button";
+import { useTheme } from "next-themes";
+import ToggleTheme from "./ToggleTheme";
 
 export default function SideBar() {
   // console.log("hey..rendering...?".toUpperCase())
   const pathname = usePathname();
-//   const { resolvedTheme } = useTheme();
+  const { resolvedTheme } = useTheme();
   const { user } = useUser();
 
   return (
@@ -42,7 +39,11 @@ export default function SideBar() {
                         alt="icon"
                         width={24}
                         height={24}
-                        className={isActive ? "filter invert brightness-200":""}
+                        className={
+                          (resolvedTheme === "light" && isActive) || (resolvedTheme === "dark" && !isActive)
+                            ? "filter invert brightness-200"
+                            : ""
+                        }
                       />
                       {link.label}
                     </Link>
@@ -50,9 +51,9 @@ export default function SideBar() {
                 );
               })}
 
-              {/* <li className="cursor-pointer  w-full">
+              <li className="cursor-pointer  w-full">
                 <ToggleTheme className="w-full pl-4 rounded-full  hover:outline-primary hover:outline-2 hover:shadow-inner" />
-              </li> */}
+              </li>
               <li className="flex-center cursor-pointer gap-2 p-4">
                 <UserButton />
                 <span className="text-primary">
@@ -66,6 +67,9 @@ export default function SideBar() {
             <Button asChild className="button bg-primary bg-cover">
               <Link href={"/sign-in"}>Login</Link>
             </Button>
+            <li className="cursor-pointer  w-full">
+              <ToggleTheme className="w-full pl-4 rounded-full  hover:outline-primary hover:outline-2 hover:shadow-inner" />
+            </li>
           </SignedOut>
         </nav>
       </div>

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Funnel_Display } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
-import SideBar from "@/components/SideBar";
+import ThemeProvider from "@/components/ThemeProvider";
 
 const funnelDisplaySans = Funnel_Display()
 const funnelDisplayMono = Funnel_Display()
@@ -32,16 +32,11 @@ export default function RootLayout({
       <body
         className={`${funnelDisplaySans.className} ${funnelDisplayMono.className} antialiased`}
       >
-        <main className="root">
+        <ThemeProvider>
           <ClerkProvider>
-            <>
-              <SideBar />
-              <div className="root-container">
-                <div className="wrapper">{children}</div>
-              </div>
-            </>
+              {children}
           </ClerkProvider>
-        </main>
+        </ThemeProvider>
       </body>
     </html>
   );
