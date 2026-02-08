@@ -10,7 +10,6 @@ import { useTheme } from "next-themes";
 import ToggleTheme from "./ToggleTheme";
 
 export default function SideBar() {
-  // console.log("hey..rendering...?".toUpperCase())
   const pathname = usePathname();
   const { resolvedTheme } = useTheme();
   const { user } = useUser();
@@ -19,7 +18,7 @@ export default function SideBar() {
     <aside className="sidebar">
       <div className="flex size-full flex-col gap-4">
         <Link href={"/"} className={"sidebar-logo dark:filter dark:invert dark:brightness-200"}>
-          <Image src={"logo.svg"} alt="logo" width={180} height={28} />
+          <Image src={"/logo.png"} alt="logo" width={180} height={28} />
         </Link>
 
         <nav className="sidebar-nav">

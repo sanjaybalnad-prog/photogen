@@ -28,16 +28,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${funnelDisplaySans.className} ${funnelDisplayMono.className} antialiased`}
-      >
-        <ThemeProvider>
-          <ClerkProvider>
-              {children}
-          </ClerkProvider>
+    <ClerkProvider>
+      <html lang="en">
+        <ThemeProvider attribute={"class"} defaultTheme="system" enableSystem disableTransitionOnChange>
+          <body
+            className={`dark:cursor-pointer ${funnelDisplaySans.className} ${funnelDisplayMono.className} antialiased`}
+          >
+            {children}
+          </body>
         </ThemeProvider>
-      </body>
-    </html>
+      </html>
+    </ClerkProvider>
   );
 }
