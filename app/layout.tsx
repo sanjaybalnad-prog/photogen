@@ -30,13 +30,13 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <ThemeProvider attribute={"class"} defaultTheme="system" enableSystem disableTransitionOnChange>
-          <body
-            className={`dark:cursor-pointer ${funnelDisplaySans.className} ${funnelDisplayMono.className} antialiased`}
-          >
+        <body
+          className={`dark:cursor-pointer ${funnelDisplaySans.className} ${funnelDisplayMono.className} antialiased`}
+        >
+          <ThemeProvider attribute={"class"} defaultTheme="system" enableSystem disableTransitionOnChange>
             {children}
-          </body>
-        </ThemeProvider>
+          </ThemeProvider>
+        </body>
       </html>
     </ClerkProvider>
   );
