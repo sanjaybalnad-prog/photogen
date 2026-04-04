@@ -40,7 +40,7 @@ export default async function AddTransformationTypePage({ params }: SearchParamP
   const transformations = transformationTypes[type];
 
   if (!userId) redirect("/sign-in");
-  console.log(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/startup/user/${userId}`)
+
   const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/startup/user/${userId}`, {
     method: "GET",
     headers: {

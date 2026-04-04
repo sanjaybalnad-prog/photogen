@@ -22,7 +22,7 @@ import { NextResponse } from "next/server";
  * - Success:   { data: TUser }
  * - Error:     { errorMessage: string } (with appropriate status code)
  */
-export async function GET(request: Request, { params }: SearchParamProps) {
+export async function GET(request: Request, { params }:{ params: Promise<{id: string}>}) {
   const authorized = request.headers.get("x-internal-secret") === process.env.INTERNAL_API_SECRET;
   console.log("cache miss api/startup/user/:id");
   if (!authorized) {

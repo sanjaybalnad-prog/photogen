@@ -28,12 +28,12 @@
  */
 import { WebhookEvent, clerkClient } from "@clerk/nextjs/server";
 import { headers } from "next/headers";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { Webhook } from "svix";
 
 import { createUser, deleteUser, updateUser } from "@/actions/user.action";
 
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
   /**
    * Webhook secret from Clerk dashboard, used to verify authenticity.
    * Must be set in `.env.local` as `WEBHOOK_SECRET`.
