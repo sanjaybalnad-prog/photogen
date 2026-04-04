@@ -19,7 +19,7 @@ export interface ITransaction {
   stripeId: string;
   amount: number;
   plan: string;
-  credits: string;
+  credits: number;
   buyer: Types.ObjectId; // Reference to the user who bought, similar to foreign key
 }
 
