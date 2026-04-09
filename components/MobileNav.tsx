@@ -35,7 +35,7 @@ export default function MobileNav() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src="/assets/images/logo-text.svg"
+            src="/logo.png"
             className="dark:filter dark:invert dark:brightness-200"
             alt="logo"
             width={180}

@@ -29,6 +29,7 @@ export const Search = () => {
 
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
+
       if (query) {
         const newUrl = formUrlQuery({
           searchParams: searchParams.toString(),
@@ -48,7 +49,7 @@ export const Search = () => {
     }, 300);
 
     return () => clearTimeout(delayDebounceFn);
-  }, [router, searchParams, query]);
+  }, [router, query]);
 
   return (
     <div className="search">
