@@ -95,7 +95,7 @@ export async function getAllImages({
  * @param limit - Number of images per page (default: 9).
  * @returns Paginated user image data or null on error.
  */
-export async function getUserImages({ limit = 9, page = 1, userId }: { limit?: number; page: number; userId: string }) {
+export async function getUserImages({ limit = 6, page = 1, userId }: { limit?: number; page: number; userId: string }) {
   try {
     await connectToDatabase();
 
