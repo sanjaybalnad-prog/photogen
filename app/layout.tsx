@@ -3,6 +3,7 @@ import { Funnel_Display } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import ThemeProvider from "@/components/ThemeProvider";
+import { Toaster } from "@/components/ui/sonner";
 
 const funnelDisplaySans = Funnel_Display()
 const funnelDisplayMono = Funnel_Display()
@@ -36,6 +37,7 @@ export default function RootLayout({
           <ThemeProvider attribute={"class"} defaultTheme="system" enableSystem disableTransitionOnChange>
             {children}
           </ThemeProvider>
+          <Toaster  />
         </body>
       </html>
     </ClerkProvider>

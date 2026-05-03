@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "./ui/sheet";
 import { DialogTitle } from "@radix-ui/react-dialog";
 import Link from "next/link";
@@ -72,7 +72,7 @@ export default function MobileNav() {
                 <DialogTitle className="sr-only">Navigation Menu</DialogTitle>
 
                 <Image
-                  src="/assets/images/logo-text.svg"
+                  src="/logo.png"
                   alt="logo"
                   width={152}
                   height={23}

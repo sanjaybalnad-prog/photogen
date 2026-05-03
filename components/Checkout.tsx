@@ -93,19 +93,23 @@ function InvokeToastForPaymentStatus() {
     // Check to see if this is a redirect back from Checkout
     const query = new URLSearchParams(window.location.search);
     if (query.get("success") === "true") {
-      toast.success("You purchased some credits!", {
-        description: <div className="text-primary">Cool, now you can transform image again!</div>,
-        closeButton: true,
-        duration: 5000,
-      });
+      setTimeout(()=>{
+        toast.success("You purchased some credits!", {
+          description: <div className="text-primary">Cool, now you can transform image again!</div>,
+          closeButton: true,
+          duration: 5000,
+        });
+      },0)
     }
 
     if (query.get("success") === "false") {
-      toast.error("Purchase canceled!", {
-        description: <div className="text-primary">Continue to shop around and checkout when you are ready</div>,
-        closeButton: true,
-        duration: 5000,
-      });
+      setTimeout(()=>{
+        toast.error("Purchase canceled!", {
+          description: <div className="text-primary">Continue to shop around and checkout when you are ready</div>,
+          closeButton: true,
+          duration: 5000,
+        });
+      },0)
     }
   }, []);
 
